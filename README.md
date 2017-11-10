@@ -1,5 +1,6 @@
-BarkTracker
-===========
+# Bark Tracker
+
+![](http://www.dgpforpets.com/wp-content/uploads/2016/10/barking-dog.jpg)
 
 An application written in Python, this will alert pet owners if their dogs are being noisy while they're at work.
 
@@ -14,10 +15,18 @@ This script needs to be customized to work with your personal microphone and mac
 
 We would also like to note that right now the code uses gmail's smtp server for sending e-mails, but it should be possible to use your own if you have one hosted.  This would require modifying the code a little bit though.
 
-This project was developed as part of the Advanced FOSS course taught at RIT during Spring 2014.
+# Contributing
+Pre-reqs: docker
 
-Installation
-===========
+```
+# Build and run the container
+docker build -t bark . && docker run -it -v $(pwd):/app bark /bin/bash
+
+# Start TDD -- this continouosly reruns tests as you develop
+make test
+```
+
+# Installation
 - Install Python 2.7.5 (unless you are using a Raspberry Pi in which case move to the next section)
 - Install python-devel
 - Pip install numpy
@@ -28,8 +37,7 @@ Installation
 
 Alternatively, if you have Python 3 you can follow the same instructions I have listed for the Raspberry Pi setup
 
-Raspberry Pi?
-===========
+# Raspberry Pi?
 
 This application *can* be run on a Raspberry Pi but there are several requirements as of 3/10/14.
 
