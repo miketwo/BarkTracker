@@ -23,7 +23,17 @@ Pre-reqs: docker
 
 ```
 # Build and run the container
-docker build -t bark . && docker run -it -v $(pwd):/app -v /dev/snd:/dev/snd bark /bin/bash
+docker build -t barktracker . && \
+  docker run -t -i \
+  -v $(pwd):/app \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  --device=/dev/snd:/dev/snd \
+  barktracker
+
+
+docker run -it -v $(pwd):/app -v /dev/snd:/dev/snd \
+bark /bin/bash
 
 # Start TDD -- this continouosly reruns tests as you develop
 make test
