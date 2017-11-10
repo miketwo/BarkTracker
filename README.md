@@ -15,18 +15,21 @@ This script needs to be customized to work with your personal microphone and mac
 
 We would also like to note that right now the code uses gmail's smtp server for sending e-mails, but it should be possible to use your own if you have one hosted.  This would require modifying the code a little bit though.
 
+# Usage
+TBD
+
 # Contributing
 Pre-reqs: docker
 
 ```
 # Build and run the container
-docker build -t bark . && docker run -it -v $(pwd):/app bark /bin/bash
+docker build -t bark . && docker run -it -v $(pwd):/app -v /dev/snd:/dev/snd bark /bin/bash
 
 # Start TDD -- this continouosly reruns tests as you develop
 make test
 ```
 
-# Installation
+# Installation (old)
 - Install Python 2.7.5 (unless you are using a Raspberry Pi in which case move to the next section)
 - Install python-devel
 - Pip install numpy

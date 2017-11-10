@@ -69,11 +69,11 @@ def main():
 
         # send email if the loudness exceeds ambient noise
         if analyse.loudness(samps) >= ambient_db:
-                    # This is the time at which the sound was detected
+            # This is the time at which the sound was detected
             currentTime = datetime.datetime.now()
 
             # Check to see when the last email was sent
-            if(emailSentAt != None):
+            if(emailSentAt is not None):
                 timeDifference = currentTime - emailSentAt
             else:
                 timeDifference = datetime.timedelta(minutes=email_timer + 1)
@@ -83,13 +83,13 @@ def main():
                 print ("Sending email about dog!")
                 emailSentAt = currentTime
                 # sending the email is in a process so that it won't...cause things to crash
-                p = Process(target=sendEmail)
-                p.start()  # actually start the process
+                # p = Process(target=sendEmail)
+                # p.start()  # actually start the process
 
             else:
                 print ("Dog is noisy but email has already been sent")
-        # elif analyse.loudness(samps) <  ambient_db:
-            #print ("Normal Ambient Sound")
+        elif analyse.loudness(samps) <  ambient_db:
+            print ("Normal Ambient Sound")
 
 
 if __name__ == '__main__':
